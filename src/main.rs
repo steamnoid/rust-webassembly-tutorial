@@ -1,29 +1,15 @@
-fn add(num_one: i32, num_two: i32) -> i32 {
-    num_one + num_two 
-}
-
 fn main() {
-    let mut total = add(10, 15);
-    let mut bonus = false;
+    let items = [1, 2, 3, 4, 5];
+    println!("Items: {:?}", items);
 
-    if total > 50 {
-        bonus = true;
-        println!("You are qualified for the bonus!");
-    } else if total > 20 {
-        println!("You are qualified for the promotion!");
-    } else {
-        println!("You are not qualified for any bonus or promotion.");
-    }
+    let vector_items = vec![1, 2, 3, 4, 5];
+    println!("Vector Items: {:?}", vector_items);
 
-    match bonus {
-        true => println!("Congratulations on your bonus!"),
-        false => println!("Keep up the good work!"),
-    }
-
-    let salary = match bonus {
-        true => 5000,
-        false => 3000,
-    };
-    
-    println!("Your salary is: {}", salary);
+    let mut vector_items_2 = Vec::new();
+    vector_items_2.push(1);
+    vector_items_2.push(2);
+    vector_items_2.push(3);
+    vector_items_2.push(4);
+    vector_items_2.push(5);
+    println!("Vector Items 2: {:?}", vector_items_2);
 }
