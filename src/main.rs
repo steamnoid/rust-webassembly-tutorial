@@ -19,4 +19,11 @@ fn main() {
         true => println!("Congratulations on your bonus!"),
         false => println!("Keep up the good work!"),
     }
+
+    let salary = match bonus {
+        true => 5000,
+        false => 3000,
+    };
+    
+    println!("Your salary is: {}", salary);
 }
