@@ -3,11 +3,20 @@
     verified: bool,
 }
 
+fn print_balance(account: &BankAccount) {
+    println!("Balance: {}", account.balance);
+}
+
+fn print_verified(account: &BankAccount) {
+    println!("Verified: {}", account.verified);
+}
+
 fn main() {
     let my_account = BankAccount {
         balance: 1000,
         verified: true,
     };
-    println!("Account Balance: {}", my_account.balance);
-    println!("Account Verified: {}", my_account.verified);
+
+    print_balance(&my_account);
+    print_verified(&my_account);
 }
