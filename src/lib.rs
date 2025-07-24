@@ -1,14 +1,12 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+use wasm_bindgen::prelude::wasm_bindgen;
+use web_sys::console::log_1 as log;
+use base64::decode;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+#[wasm_bindgen]
+pub fn grayscale(encoded_file: &str) {
+    // log(&encoded_file.into());
+    log(&"Grayscale function called".into());
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+    let base64_to_vector = decode(encoded_file).expect("Failed to decode base64 string");
+    log(&"Image decoded from base64".into());
 }
