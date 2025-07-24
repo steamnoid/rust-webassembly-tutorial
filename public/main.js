@@ -22,7 +22,9 @@ async function init() {
         );
         // console.log(input.files[0]);
         // console.log(base64);
-        rustApp.grayscale(base64);
+        let img_data_url = rustApp.grayscale(base64);
+        // console.log(img_data_url);
+        document.getElementById('new-image').setAttribute('src', img_data_url);
     }
     input.addEventListener('change', (event) => {
         fileReader.readAsDataURL(input.files[0])});

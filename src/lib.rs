@@ -1,10 +1,10 @@
 use wasm_bindgen::prelude::wasm_bindgen;
 use web_sys::console::log_1 as log;
-use base64::decode;
+use base64::{decode, encode};
 use image::load_from_memory;
 
 #[wasm_bindgen]
-pub fn grayscale(encoded_file: &str) {
+pub fn grayscale(encoded_file: &str) -> String {
     // log(&encoded_file.into());
     log(&"Grayscale function called".into());
 
@@ -21,4 +21,13 @@ pub fn grayscale(encoded_file: &str) {
     img.write_to(&mut buffer, image::ImageOutputFormat::Png)
         .expect("Failed to write image to buffer");
     log(&"Image written to buffer".into());
+
+    let encoded_img = encode(&buffer);
+    log(&"Image encoded to base64".into());
+
+    let data_url = format!("data:image/png;base64,{}", encoded_img);
+    log(&"Data URL created".into());
+    // log(&encoded_img.into());
+
+    data_url
 }
